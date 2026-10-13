@@ -15,7 +15,15 @@ MarkEdit normally pastes only the `text/plain` flavor, so lists, inline code, li
 - Escaping is intentionally light: identifiers like `MY_CONST` are kept as-is instead of `MY\_CONST`.
 - Paste is a single undo step.
 
-## Build & install
+## Install
+
+1. Download `markedit-paste-markdown.js` from the [latest release](https://github.com/lbwork5388/markedit-paste-markdown/releases/latest).
+2. Move it into `~/Library/Containers/app.cyan.markedit/Data/Documents/scripts/`.
+3. Restart MarkEdit.
+
+To uninstall, delete the file and restart MarkEdit.
+
+## Build from source
 
 ```sh
 npm install
@@ -31,3 +39,7 @@ npm run reload     # restart MarkEdit to load the extension
 npm test
 npm run typecheck
 ```
+
+## Releasing
+
+Bump `version` in `package.json`, push, then publish a GitHub release tagged `v<version>` (e.g. `v0.1.0`). The [Release workflow](.github/workflows/release.yml) runs the tests, builds the script, and attaches `markedit-paste-markdown.js` to the release.
