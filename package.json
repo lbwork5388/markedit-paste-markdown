@@ -1,0 +1,35 @@
+{
+  "name": "markedit-paste-markdown",
+  "version": "0.1.0",
+  "description": "Convert rich text (HTML) on the clipboard to Markdown when pasting into MarkEdit.",
+  "private": true,
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "build": "npm run typecheck && vite build",
+    "build:dist": "cross-env NO_DEPLOY=true vite build",
+    "reload": "osascript -e 'quit app \"MarkEdit\"' -e 'delay 1' -e 'launch app \"MarkEdit\"'",
+    "uninstall": "rm ~/Library/Containers/app.cyan.markedit/Data/Documents/scripts/$(node -p \"require('./package.json').name\").js"
+  },
+  "license": "MIT",
+  "author": "Bo Li",
+  "devDependencies": {
+    "@codemirror/language": "^6.13.1",
+    "@codemirror/state": "^6.7.6",
+    "@codemirror/view": "^6.43.14",
+    "@lezer/common": "^1.5.3",
+    "@types/node": "^26.6.5",
+    "@types/turndown": "^5.0.6",
+    "cross-env": "^10.1.0",
+    "jsdom": "^29.1.1",
+    "markedit-api": "github:MarkEdit-app/MarkEdit-api#v0.36.0",
+    "markedit-vite": "github:MarkEdit-app/MarkEdit-vite#v0.6.0",
+    "typescript": "~6.0",
+    "vite": "^8.3.4",
+    "vitest": "^4.1.11"
+  },
+  "dependencies": {
+    "@joplin/turndown-plugin-gfm": "^1.0.68",
+    "turndown": "^7.2.4"
+  }
+}
